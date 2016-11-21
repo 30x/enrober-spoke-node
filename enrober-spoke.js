@@ -5,6 +5,7 @@ var pge = require('pg-event-consumer')
 
 function processEvent(event) {
   // Do something here to align K8S cluster with change decribed by event
+  console.log(JSON.stringify(event, null, 4))
   console.log(`enrober: processEvent: event.index: ${event.index} event.topic: ${event.topic} event.data.id: ${event.data.id} event.data.action: ${event.data.action}`)    
 }
 
@@ -13,7 +14,6 @@ var permissionsEventConsumer = new pge.eventConsumer(IPADDRESS, processEvent)
 
 function processEventPost(req, res, event) {
   permissionsEventConsumer.processEvent(event)
-  console.log(event)
   lib.found(req, res)
 }
 

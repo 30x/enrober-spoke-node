@@ -1,6 +1,6 @@
 export IPADDRESS="127.0.0.1"
 export PORT=3015
-export COMPONENT="permissions"
+export COMPONENT="enrober-spoke"
 export SPEEDUP=10
 export EXTERNAL_SY_ROUTER_HOST="localhost"
 export EXTERNAL_SY_ROUTER_PORT="8080"

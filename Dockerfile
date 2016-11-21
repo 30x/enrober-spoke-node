@@ -5,7 +5,7 @@ ADD package.json .
 RUN npm install --production
 ADD . .
 
-ENV COMPONENT="permissions" 
+ENV COMPONENT="enrober-spoke" 
 ENV PORT=3000
 EXPOSE 3000
-CMD ["node", "permissions.js"]
+CMD ["node", "enrober-spoke.js"]

@@ -10,10 +10,10 @@ function processEvent(event) {
 }
 
 var IPADDRESS = process.env.PORT !== undefined ? `${process.env.IPADDRESS}:${process.env.PORT}` : process.env.IPADDRESS
-var permissionsEventConsumer = new pge.eventConsumer(IPADDRESS, processEvent)
+var eventConsumer = new pge.eventConsumer(IPADDRESS, processEvent)
 
 function processEventPost(req, res, event) {
-  permissionsEventConsumer.processEvent(event)
+  eventConsumer.processEvent(event)
   lib.found(req, res)
 }
 
@@ -29,7 +29,7 @@ function requestHandler(req, res) {
 
 function start() {
   var port = process.env.PORT
-  permissionsEventConsumer.init(function() {
+  eventConsumer.init(function() {
     http.createServer(requestHandler).listen(port, function() {
       console.log(`server is listening on ${port}`)
     })
